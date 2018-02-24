@@ -1,1 +1,31 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sidenav-container">
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="startnav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Be Inspired</span>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="endnav.toggle()">
+      <mat-icon>info_outline</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-sidenav #startnav mode="side" class="sidenav">
+      <div class="header-sidenav"></div>
+      <mat-list>
+        <mat-list-item [routerLink]="['/home']">
+            <mat-icon mat-list-icon>home</mat-icon>
+            <span class="icon-title">Home</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item [routerLink]="['/create']">
+          <mat-icon mat-list-icon>format_quote</mat-icon>
+          <span class="icon-title">Inspire</span>
+        </mat-list-item>
+      </mat-list>
+  </mat-sidenav>
+
+  <div class="app-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
